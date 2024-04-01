@@ -81,10 +81,10 @@ class MainWindow(QMainWindow):
         self.matrix_tester = MatrixTest(self.layout_editor)
         self.rgb_configurator = RGBConfigurator()
 
-        self.editors = [(self.keymap_editor, "Keymap"), (self.layout_editor, "Layout"), (self.macro_recorder, "Macros"),
-                        (self.rgb_configurator, "Lighting"), (self.tap_dance, "Tap Dance"), (self.combos, "Combos"),
-                        (self.key_override, "Key Overrides"), (self.qmk_settings, "QMK Settings"),
-                        (self.matrix_tester, "Matrix tester"), (self.firmware_flasher, "Firmware updater")]
+        self.editors = [(self.keymap_editor, "键盘映射"), (self.layout_editor, "布局"), (self.macro_recorder, "编辑宏"),
+                        (self.rgb_configurator, "背光调节"), (self.tap_dance, "Tap Dance"), (self.combos, "组合键"),
+                        (self.key_override, "按键覆盖"), (self.qmk_settings, "QMK设置"),
+                        (self.matrix_tester, "矩阵测试"), (self.firmware_flasher, "Firmware updater")]
 
         Unlocker.global_layout_editor = self.layout_editor
         Unlocker.global_main_window = self
@@ -145,15 +145,15 @@ class MainWindow(QMainWindow):
             QTimer.singleShot(100, vialglue.notify_ready)
 
     def init_menu(self):
-        layout_load_act = QAction(tr("MenuFile", "Load saved layout..."), self)
+        layout_load_act = QAction(tr("MenuFile", "读取保存的设置..."), self)
         layout_load_act.setShortcut("Ctrl+O")
         layout_load_act.triggered.connect(self.on_layout_load)
 
-        layout_save_act = QAction(tr("MenuFile", "Save current layout..."), self)
+        layout_save_act = QAction(tr("MenuFile", "读取当前设置..."), self)
         layout_save_act.setShortcut("Ctrl+S")
         layout_save_act.triggered.connect(self.on_layout_save)
 
-        sideload_json_act = QAction(tr("MenuFile", "Sideload VIA JSON..."), self)
+        sideload_json_act = QAction(tr("MenuFile", "加载VIA的JSON配置..."), self)
         sideload_json_act.triggered.connect(self.on_sideload_json)
 
         download_via_stack_act = QAction(tr("MenuFile", "Download VIA definitions"), self)
